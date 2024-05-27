@@ -12,4 +12,7 @@
         <h1>My first PHP page</h1>
         <a href="form.php">Form</a>
     </div>
+    <div class="container text-center mt-5">
+        <p>Ceci est la page d'accueil, cliquer sur form</p>
+    </div>
 </body>
