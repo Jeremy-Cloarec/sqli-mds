@@ -10,13 +10,10 @@
 <body>
     <div class="container d-flex justify-content-center align-items-center flex-column mt-5">
         <h1>Form</h1>
+        <a href="index.php">Home</a>
         <form action="execute_form.php" method="post">
-            <label class="mt-2" for="lastname">Lastname:</label><br>
-            <input type="text" id="lastname" name="lastname"><br>
             <label class="mt-2" for="firstname">Firstname:</label><br>
             <input type="text" id="firstname" name="firstname"><br>
-            <label class="mt-2" for="email">Email:</label><br>
-            <input type="text" id="email" name="email"><br>
             <div class="text-center">
                 <input class="mt-2" type="submit" value="Submit">
             </div>
