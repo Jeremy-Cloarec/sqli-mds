@@ -10,5 +10,17 @@ if (isset($_POST['firstname'])) {
     $connection->query($sql);
 
     header('Location: index.php');
-    exit();
 }
+
+// Solution pour résoudre le problème de l'injection SQL
+
+// if (isset($_POST['firstname'])) {
+//     $firstname = $_POST['firstname'];
+
+//     $sql = 'INSERT INTO user (prenom) VALUES (:firstname)';
+//     $stmt = $connection->prepare($sql);
+//     $stmt->bindParam(':firstname', $firstname);
+//     $stmt->execute();
+
+//     header('Location: index.php');
+// }
