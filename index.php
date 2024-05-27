@@ -18,13 +18,20 @@ if (isset($_GET['email'])) {
     // Récupérer les données de l'utilisateur
     $user_email = $_GET['email'];
 
-    // Requête SQL sécurisée
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
-    $stmt->bind_param("s", $user_email);
+    // Non sécurisé
+    $sql = "SELECT * FROM users WHERE email = '$user_email'";
 
-    // Exécution de la requête
-    $stmt->execute();
-    $result = $stmt->get_result();
+    // Requête dà insérer dans l'url 
+    // http://localhost/sqli-mds/index.php?email=' OR '1'='1
+
+    // Requête sécurisée
+    
+    // $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    // $stmt->bind_param("s", $user_email);
+    // $stmt->execute();
+    // $result = $stmt->get_result();
+
+    $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         // Afficher les données de l'utilisateur
@@ -38,7 +45,8 @@ if (isset($_GET['email'])) {
         echo "<p>0 résultats</p>";
     }
 
-    $stmt->close();
+    // $stmt->close();
+
 } else {
     echo "<p>Veuillez entrer un email pour rechercher.</p>";
 }
